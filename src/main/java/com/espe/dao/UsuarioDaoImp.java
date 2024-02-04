@@ -56,8 +56,6 @@ public class UsuarioDaoImp implements IUsuarioDAO {
         Query query = entityManager.createQuery("SELECT u FROM Usuario u");
         // desarrollado por Anyel EC
         listaUsuarios = query.getResultList();
-        // Cerrar la conexión
-        JPAUtil.shutdown();
         // retornar la lista de objetos usuario
         return listaUsuarios;
     }

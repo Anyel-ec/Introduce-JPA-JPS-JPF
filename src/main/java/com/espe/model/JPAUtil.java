@@ -1,6 +1,7 @@
 package com.espe.model;
 
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 public class JPAUtil {
     // Nombre de la unidad de persistencia
@@ -10,7 +11,7 @@ public class JPAUtil {
     public static EntityManagerFactory getEntityManagerFactory() {
         if (factory == null) { // si no existe la factoria de entidades
             // se crea la factoria de entidades
-            factory = jakarta.persistence.Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         }
         return factory; // se retorna la factoria de entidades
     }

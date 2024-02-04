@@ -11,9 +11,13 @@ public class Usuario {
     // Generar el id de manera automatica
     @GeneratedValue (strategy= GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "nombre")
     private String nombre;
+    @Column(name = "apellido")
     private String apellido;
+    @Column(name = "cedula")
     private String cedula;
+    @Column(name = "ciudad")
     private String ciudad;
 
     public Usuario() {
