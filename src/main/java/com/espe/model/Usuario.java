@@ -10,6 +10,7 @@ public class Usuario {
     @Id
     // Generar el id de manera automatica
     @GeneratedValue (strategy= GenerationType.IDENTITY)
+<<<<<<< HEAD
     private Integer id_usuario;
     @Column
     private String nombre;
@@ -18,25 +19,49 @@ public class Usuario {
     @Column
     private String cedula;
     @Column
+=======
+    private Integer id;
+    @Column(name = "nombre")
+    private String nombre;
+    @Column(name = "apellido")
+    private String apellido;
+    @Column(name = "cedula")
+    private String cedula;
+    @Column(name = "ciudad")
+>>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
     private String ciudad;
 
     public Usuario() {
     }
 
+<<<<<<< HEAD
     public Usuario(Integer id_usuario, String nombre, String apellido, String cedula, String ciudad) {
         this.id_usuario = id_usuario;
+=======
+    public Usuario(Integer id, String nombre, String apellido, String cedula, String ciudad) {
+        this.id = id;
+>>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.ciudad = ciudad;
     }
 
+<<<<<<< HEAD
     public Integer getId_usuario() {
         return id_usuario;
     }
 
     public void setId_usuario(Integer id_usuario) {
         this.id_usuario = id_usuario;
+=======
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+>>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
     }
 
     public String getNombre() {
@@ -74,11 +99,19 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
+<<<<<<< HEAD
                 "id_usuario=" + id_usuario +
+=======
+                "id=" + id +
+>>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", cedula='" + cedula + '\'' +
                 ", ciudad='" + ciudad + '\'' +
                 '}';
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0

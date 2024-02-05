@@ -9,5 +9,9 @@ public interface IUsuarioDAO {
     Usuario buscarUsuario (int id);
     List<Usuario> obtenerUsuarios();
     // desarrollado por Anyel EC
+<<<<<<< HEAD
     void eliminar(int id);
 }
+=======
+}
+>>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0

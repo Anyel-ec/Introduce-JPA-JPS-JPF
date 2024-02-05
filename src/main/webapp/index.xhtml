@@ -10,7 +10,11 @@
         <h:outputLabel value="Lista de Usuarios"/>
     </h2>
 
+<<<<<<< HEAD
     <h:dataTable value="#{usuarioManagerBean.listaUsuarios}" var="usuario" border="1">
+=======
+    <h:dataTable value="#{usuarioBean.obtenerUsuarios()}" var="usuario" border="1">
+>>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
         <h:column>
             <f:facet name="header">NOMBRE</f:facet>
             <h:outputText value ="#{usuario.nombre}"></h:outputText>
@@ -22,12 +26,17 @@
         <h:column>
             <f:facet name="header"> EDITAR</f:facet>
             <h:form>
+<<<<<<< HEAD
                 <h:commandButton action="#{usuarioManagerBean.editar(usuario.id_usuario)}" value="Editar"></h:commandButton>
+=======
+                <h:commandButton action="#{usuarioBean.editar(usuario.idusuario)}" value="Editar"></h:commandButton>
+>>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
             </h:form>
         </h:column>
         <h:column>
             <f:facet name="header"> ELIMINAR</f:facet>
             <h:form>
+<<<<<<< HEAD
                 <h:commandButton action="#{usuarioManagerBean.eliminar(usuario.id_usuario)}" value="Eliminar"></h:commandButton>
             </h:form>
         </h:column>
@@ -35,3 +44,11 @@
 
 </f:view>
 </html>
+=======
+                <h:commandButton action="#{usuarioBean.eliminar(usuario.idusuario)}" value="Eliminar"></h:commandButton>
+            </h:form>
+        </h:column>
+    </h:dataTable>
+</f:view>
+</html>
+>>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
