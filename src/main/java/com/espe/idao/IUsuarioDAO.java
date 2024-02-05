@@ -7,6 +7,6 @@ public interface IUsuarioDAO {
     void guardar (Usuario usuario);
     void editar (Usuario usuario);
     Usuario buscarUsuario (int id);
-    List<Usuario> listar();
+    List<Usuario> obtenerUsuarios();
     // desarrollado por Anyel EC
 }

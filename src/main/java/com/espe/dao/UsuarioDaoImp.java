@@ -49,7 +49,7 @@ public class UsuarioDaoImp implements IUsuarioDAO {
     }
 
     @Override
-    public List<Usuario> listar() {
+    public List<Usuario> obtenerUsuarios() {
         // crear una lista de objetos usuario
         List <Usuario> listaUsuarios;
         // crear una consulta para obtener todos los objetos usuario
