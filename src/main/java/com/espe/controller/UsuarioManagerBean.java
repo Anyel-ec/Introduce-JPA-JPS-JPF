@@ -1,86 +1,95 @@
 package com.espe.controller;
 
-<<<<<<< HEAD
-import com.espe.dao.UsuarioDaoImpl;
-=======
-import com.espe.dao.UsuarioDaoImp;
->>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
+
+import com.espe.dao.UsuarioDAOImpl;
 import com.espe.idao.IUsuarioDAO;
 import com.espe.model.Usuario;
 import jakarta.faces.bean.RequestScoped;
+import jakarta.faces.context.ExternalContext;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 // realizar la inyección de dependencia
-@RequestScoped // Alcance de la clase
-// Nombre con el que se va a referenciar la clase
-<<<<<<< HEAD
-@Named
-public class UsuarioManagerBean {
 
-    IUsuarioDAO usuarioDao = new UsuarioDaoImpl();
-    private List<Usuario> listaUsuarios;
-
-    // Getter y setter para listaUsuarios
-
-    public void init() {
-        listaUsuarios = usuarioDao.obtenerUsuarios();
-    }
-
-    public List<Usuario> getListaUsuarios() {
-        return listaUsuarios;
-    }
-
-    public String editar(int id) {
-        Usuario oUsuario = usuarioDao.buscarUsuario(id);
-        Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-        sessionMap.put("usuario", oUsuario);
-        return "/editar.xhtml";
-    }
-
-    public String eliminar(int id) {
-        usuarioDao.eliminar(id);
-        listaUsuarios = usuarioDao.obtenerUsuarios(); // Actualizar la lista después de eliminar
-        return "/index.xhtml";
-    }
-
-}
-=======
 @Named(value = "usuarioBean")
+@RequestScoped
+
 public class UsuarioManagerBean {
 
-    IUsuarioDAO usuarioDao = new UsuarioDaoImp();
+    IUsuarioDAO usuarioDAO = new UsuarioDAOImpl();
+    //Prueba de patron DAO
+    //Prueba de patron DAO
+    //Prueba de patron DAO
     public List<Usuario> obtenerUsuarios(){
-        return usuarioDao.obtenerUsuarios();
+        /* List<Usuario> listaUsuarios = new ArrayList<>();
+
+        Usuario u1 = new Usuario();
+        u1.setIdUsuario(1);
+        u1.setNombreUsuario("Leonardo");
+        u1.setApellidoUsuario("Flores");
+
+        Usuario u2 = new Usuario();
+        u2.setIdUsuario(2);
+        u2.setNombreUsuario("David");
+        u2.setApellidoUsuario("Sarango");
+
+        listaUsuarios.add(u1);
+        listaUsuarios.add(u2);
+
+        return listaUsuarios; */
+
+
+        return usuarioDAO.obtenerUsuario();
     }
 
     public String editar(int id){
         Usuario oUsuario = new Usuario();
-        oUsuario = usuarioDao.buscarUsuario(id);
-        System.out.println("Usuario a editar"+ oUsuario.getNombre());
+        oUsuario = usuarioDAO.buscarUsuario(id);
+        System.out.println(oUsuario);
 
-        //CREAR UNA COLECCIÓN DE TIPO MAP
         Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-        // return "/editar.xhtml";
+
+
+        //se pasan los parámetros del usuario
         sessionMap.put("usuario", oUsuario);
-        return "/index.xhtml";
+        return "/editar.xhtml";
     }
 
     public String actualizar(Usuario usuario){
-        usuarioDao.editar(usuario);
+        usuarioDAO.editar(usuario);
         return "/index.xhtml";
     }
 
-    /*public String eliminar(int id){
-        usuarioDao.eliminar(id);
-        System.out.println("Usuario eliminado con éxito");
+    public String eliminar(int id){
+        usuarioDAO.eliminar(id);
         return "/index.xhtml";
-    }*/
+    }
+    public String regresarIndice() {
+        try {
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(externalContext.getRequestContextPath() + "/index.xhtml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null; // Para asegurarnos de que JSF no realice una navegación adicional
+    }
+    private Usuario nuevoUsuario = new Usuario();
+
+    public Usuario getNuevoUsuario() {
+        return nuevoUsuario;
+    }
+
+    public void setNuevoUsuario(Usuario nuevoUsuario) {
+        this.nuevoUsuario = nuevoUsuario;
+    }
+
+    public String guardarNuevoUsuario() {
+        usuarioDAO.guardarNuevoUsuario(nuevoUsuario);
+        return "/index.xhtml";
+    }
 
 }
->>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
+

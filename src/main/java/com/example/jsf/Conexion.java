@@ -1,6 +1,6 @@
 package com.example.jsf;
 
-import com.espe.dao.UsuarioDaoImpl;
+import com.espe.dao.UsuarioDAOImpl;
 import com.espe.idao.IUsuarioDAO;
 import com.espe.model.Usuario;
 
@@ -27,16 +27,16 @@ public class Conexion {
                 System.out.println("Conexión a la base de datos establecida correctamente.");
 
                 // Obtener la lista de usuarios desde la base de datos
-                IUsuarioDAO usuarioDao = new UsuarioDaoImpl();
-                List<Usuario> listaUsuarios = usuarioDao.obtenerUsuarios();
+                IUsuarioDAO usuarioDao = new UsuarioDAOImpl();
+                List<Usuario> listaUsuarios = usuarioDao.obtenerUsuario();
 
                 // Imprimir la información de los usuarios en la consola
                 for (Usuario usuario : listaUsuarios) {
-                    System.out.println("ID: " + usuario.getId_usuario());
-                    System.out.println("Nombre: " + usuario.getNombre());
-                    System.out.println("Apellido: " + usuario.getApellido());
-                    System.out.println("Cédula: " + usuario.getCedula());
-                    System.out.println("Ciudad: " + usuario.getCiudad());
+                    System.out.println("ID: " + usuario.getIdUsuario());
+                    System.out.println("Nombre: " + usuario.getNombreUsuario());
+                    System.out.println("Apellido: " + usuario.getNombreUsuario());
+                    System.out.println("Cédula: " + usuario.getCedulaUsuario());
+                    System.out.println("Ciudad: " + usuario.getCiudadUsuario());
                     System.out.println("-----------------------------");
                 }
             } else {

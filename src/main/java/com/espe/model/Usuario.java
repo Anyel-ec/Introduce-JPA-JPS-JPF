@@ -2,116 +2,82 @@ package com.espe.model;
 
 import jakarta.persistence.*;
 
-// Tabla de usuario
 @Entity
-@Table(name = "usuario")
+@Table(name = "Usuario")
 public class Usuario {
-    // Atributos de la tabla usuario
+
     @Id
-    // Generar el id de manera automatica
-    @GeneratedValue (strategy= GenerationType.IDENTITY)
-<<<<<<< HEAD
-    private Integer id_usuario;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idUsuario;
     @Column
-    private String nombre;
+    private String nombreUsuario;
     @Column
-    private String apellido;
+    private String apellidoUsuario;
     @Column
-    private String cedula;
+    private String cedulaUsuario;
     @Column
-=======
-    private Integer id;
-    @Column(name = "nombre")
-    private String nombre;
-    @Column(name = "apellido")
-    private String apellido;
-    @Column(name = "cedula")
-    private String cedula;
-    @Column(name = "ciudad")
->>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
-    private String ciudad;
+    private String ciudadUsuario;
 
     public Usuario() {
     }
 
-<<<<<<< HEAD
-    public Usuario(Integer id_usuario, String nombre, String apellido, String cedula, String ciudad) {
-        this.id_usuario = id_usuario;
-=======
-    public Usuario(Integer id, String nombre, String apellido, String cedula, String ciudad) {
-        this.id = id;
->>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.cedula = cedula;
-        this.ciudad = ciudad;
+    public Usuario(Integer idUsuario, String nombreUsuario, String apellidoUsuario, String cedulaUsuario, String ciudadUsuario) {
+        this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.apellidoUsuario = apellidoUsuario;
+        this.cedulaUsuario = cedulaUsuario;
+        this.ciudadUsuario = ciudadUsuario;
     }
 
-<<<<<<< HEAD
-    public Integer getId_usuario() {
-        return id_usuario;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId_usuario(Integer id_usuario) {
-        this.id_usuario = id_usuario;
-=======
-    public Integer getId() {
-        return id;
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
->>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getApellidoUsuario() {
+        return apellidoUsuario;
     }
 
-    public String getApellido() {
-        return apellido;
+    public void setApellidoUsuario(String apellidoUsuario) {
+        this.apellidoUsuario = apellidoUsuario;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public String getCedulaUsuario() {
+        return cedulaUsuario;
     }
 
-    public String getCedula() {
-        return cedula;
+    public void setCedulaUsuario(String cedulaUsuario) {
+        this.cedulaUsuario = cedulaUsuario;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
+    public String getCiudadUsuario() {
+        return ciudadUsuario;
     }
 
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setCiudadUsuario(String ciudadUsuario) {
+        this.ciudadUsuario = ciudadUsuario;
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
-<<<<<<< HEAD
-                "id_usuario=" + id_usuario +
-=======
-                "id=" + id +
->>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", cedula='" + cedula + '\'' +
-                ", ciudad='" + ciudad + '\'' +
+                "idUsuario=" + idUsuario +
+                ", nombreUsuario='" + nombreUsuario + '\'' +
+                ", apellidoUsuario='" + apellidoUsuario + '\'' +
+                ", cedulaUsuario='" + cedulaUsuario + '\'' +
+                ", ciudadUsuario='" + ciudadUsuario + '\'' +
                 '}';
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> b7ee2a96c208727a01051c02fad6344be1c549f0
