@@ -19,45 +19,31 @@ import java.util.Map;
 
 public class UsuarioManagerBean {
 
+    // Crear un objeto de tipo IUsuarioDAO
     IUsuarioDAO usuarioDAO = new UsuarioDAOImpl();
-    //Prueba de patron DAO
-    //Prueba de patron DAO
-    //Prueba de patron DAO
+
+    // Crear un método que devuelva una lista de usuarios
     public List<Usuario> obtenerUsuarios(){
-        /* List<Usuario> listaUsuarios = new ArrayList<>();
-
-        Usuario u1 = new Usuario();
-        u1.setIdUsuario(1);
-        u1.setNombreUsuario("Leonardo");
-        u1.setApellidoUsuario("Flores");
-
-        Usuario u2 = new Usuario();
-        u2.setIdUsuario(2);
-        u2.setNombreUsuario("David");
-        u2.setApellidoUsuario("Sarango");
-
-        listaUsuarios.add(u1);
-        listaUsuarios.add(u2);
-
-        return listaUsuarios; */
-
-
         return usuarioDAO.obtenerUsuario();
     }
 
     public String editar(int id){
+        // Crear un objeto de tipo Usuario
         Usuario oUsuario = new Usuario();
+        // Asignar al objeto oUsuario el resultado de buscarUsuario
         oUsuario = usuarioDAO.buscarUsuario(id);
+        // Imprimir en consola el objeto oUsuario
         System.out.println(oUsuario);
-
-        Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-
+        // Crear un objeto de tipo Map llamado sessionMap
+        Map<String, Object> sessionMap =
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
         //se pasan los parámetros del usuario
         sessionMap.put("usuario", oUsuario);
         return "/editar.xhtml";
     }
-
+    // desarrollado por Anyel EC
+    // actualiza el usuario utilizando el método editar de UsuarioDAOImpl
     public String actualizar(Usuario usuario){
         usuarioDAO.editar(usuario);
         return "/index.xhtml";
@@ -76,16 +62,20 @@ public class UsuarioManagerBean {
         }
         return null; // Para asegurarnos de que JSF no realice una navegación adicional
     }
+    // Crear un objeto de tipo Usuario
     private Usuario nuevoUsuario = new Usuario();
+    // Crear un método que devuelva un objeto de tipo Usuario
 
     public Usuario getNuevoUsuario() {
         return nuevoUsuario;
     }
 
+    // establecer un valor para el objeto nuevoUsuario
     public void setNuevoUsuario(Usuario nuevoUsuario) {
         this.nuevoUsuario = nuevoUsuario;
     }
 
+    // Crear un método que guarde un nuevo usuario
     public String guardarNuevoUsuario() {
         usuarioDAO.guardarNuevoUsuario(nuevoUsuario);
         return "/index.xhtml";

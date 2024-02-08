@@ -7,17 +7,16 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:head>
-        <title>Editar Usuario</title>
+        <title>Actualizar Usuario</title>
     </h:head>
     <h:body>
-        <h2>Editar Usuario</h2>
 
         <h:form>
             <h:panelGrid columns="2">
-
+                <!-- mostrar los valores del usuario -->
                 <h:outputLabel value="Nombre:" for="nombreUsuario" />
                 <h:inputText id="nombreUsuario" value="#{usuario.nombreUsuario}" />
-
+                <!--Desarrollado por Anyel EC-->
                 <h:outputLabel value="Apellido:" for="apellidoUsuario" />
                 <h:inputText id="apellidoUsuario" value="#{usuario.apellidoUsuario}" />
                 <h:commandButton value="Actualizar" action="#{usuarioBean.actualizar(usuario) }" />

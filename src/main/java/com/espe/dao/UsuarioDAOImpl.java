@@ -9,7 +9,6 @@ import jakarta.persistence.Query;
 import java.util.List;
 
 public class UsuarioDAOImpl implements IUsuarioDAO {
-
     EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
     @Override
     public void guardar(Usuario usuario){
@@ -46,18 +45,24 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
 
     @Override
     public void eliminar(int id){
+        // Crear un objeto de tipo Usuario
         Usuario oUsuario;
+        // obtener el usuario a eliminar
         oUsuario = entityManager.find(Usuario.class,id);
+        // Iniciar una transacción con la base de datos
         entityManager.getTransaction().begin();
+        // eliminar el usuario
         entityManager.remove(oUsuario);
+        // finalizar la transacción
         entityManager.getTransaction().commit();
     }
 
     public void guardarNuevoUsuario(Usuario usuario){
+        // Iniciar una transacción con la base de datos
         entityManager.getTransaction().begin();
+        // guardar el usuario
         entityManager.persist(usuario);
+        // finalizar la transacción
         entityManager.getTransaction().commit();
     }
-
 }
-
